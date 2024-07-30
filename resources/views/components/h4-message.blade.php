@@ -1,0 +1,1 @@
+<h4 {{ $attributes -> class(["mt-20 text-md text-slate-500 text-center"]) }}>{{ $slot }}</h4>
