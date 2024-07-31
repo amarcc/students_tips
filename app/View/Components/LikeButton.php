@@ -14,7 +14,7 @@ class LikeButton extends Component
     public function __construct(
         public string $name,
         public ?int $size = 6,
-        public ?string $firstColor = 'black'
+        public ?string $firstColor = 'black',
     )
     {
         //

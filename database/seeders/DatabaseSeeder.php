@@ -61,7 +61,7 @@ class DatabaseSeeder extends Seeder
                     Like::factory() -> create([
                         'user_id' => $user_id,
                         'tip_id' => $tip -> id,
-                        'ind' => $user_id . '$$' . $tip -> id
+                        'ind' => $user_id . '$$' . $tip -> id . '$$tip'
                     ]);
                 }
             }
@@ -83,7 +83,7 @@ class DatabaseSeeder extends Seeder
                     Like::factory() -> create([
                         'user_id' => $user_id,
                         'reply_id' => $reply -> id,
-                        'ind' => $user_id . '$$' . $tip -> id
+                        'ind' => $user_id . '$$' . $tip -> id . '$$reply'
                     ]);
                 }
             }

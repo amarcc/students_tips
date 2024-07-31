@@ -20,7 +20,7 @@
                         @csrf
                         <input type="hidden" value="tip" name="type">
                         <input type="hidden" value="{{ $tip -> id }}" name="id">
-                        <input type="hidden" value="{{ auth() -> user() -> id . "$$" . $tip -> id }}" name="ind">
+                        <input type="hidden" value="{{ auth() -> user() -> id . "$$" . $tip -> id . '$$tip' }}" name="ind">
                         <x-like-button name="title" firstColor="black"></x-like-button>
                     </form>
                 @else
@@ -101,7 +101,7 @@
                                                 @csrf
                                                 <input type="hidden" value="reply" name="type">
                                                 <input type="hidden" value="{{ $reply -> id }}" name="id">
-                                                <input type="hidden" value="{{ auth() -> user() -> id . "$$" . $reply -> id }}" name="ind">
+                                                <input type="hidden" value="{{ auth() -> user() -> id . "$$" . $reply -> id . '$$reply' }}" name="ind">
                                                 <x-like-button name="title" firstColor="black"></x-like-button>
                                             </form>
                                         @else
