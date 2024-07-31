@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Phpml\Regression\LeastSquares;
 
 class MarkController extends Controller
 {
@@ -11,7 +12,7 @@ class MarkController extends Controller
      */
     public function index()
     {
-        return view('mark.index');
+        //
     }
 
     /**
@@ -19,7 +20,7 @@ class MarkController extends Controller
      */
     public function create()
     {
-        //
+        return view('mark.create');
     }
 
     /**
@@ -27,15 +28,54 @@ class MarkController extends Controller
      */
     public function store(Request $request)
     {
-        return view('mark.store');
+        $request -> validate([
+            'currentTimeSpent' => 'required|numeric|min:0.25',
+            'currentEcts' => 'required|min:1|numeric'
+        ]);
+
+        for($i = 0; $i < 5; $i++){
+            $request -> validate([
+                'mark' . $i => 'required|numeric|min:5|max:10',
+                'timeSpent' . $i => 'required|numeric|min:0.25',
+                'ects'. $i => 'required|min:1|numeric'
+            ]);
+        }
+
+        $currTimeSpent = $request -> input('currentTimeSpent');
+        $currEcts = $request -> input('currentEcts');
+
+        $x = [];
+
+        $yMarks = [];
+
+        for($i = 0; $i < 5; $i++){
+            $xTimeSpent = $request -> input('timeSpent' . $i);
+            $xEcts = $request -> input('ects' . $i);
+
+            $yMark = $request -> input('mark'. $i);
+
+            array_push($x, [$xTimeSpent, $xEcts]);
+            array_push($yMarks, $yMark,);
+        }
+
+        $regression = new LeastSquares();
+
+        $regression -> train($x, $yMarks);
+
+        $coefficients = $regression->getCoefficients();
+        $intercept = $regression->getIntercept();
+
+        $num = round($intercept + $coefficients[0] * $currTimeSpent + $coefficients[1] * $currEcts);
+
+        return redirect() -> route('mark.show', $num);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $num)
     {
-        //
+        return view('mark.show', ['num' => $num]);
     }
 
     /**

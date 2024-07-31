@@ -13,7 +13,7 @@
                             <x-button class="min-w-fit" type="submit">Apply filerts</x-button>
                         </div>
                         <div class="flex min-w-fit items-center justify-center gap-2">
-                            <input type="checkbox" class="rounded block" name="mostLikes" @checked(request('mostLikes'))>
+                            <input id="mostLikes" type="checkbox" class="rounded block" name="mostLikes" @checked(request('mostLikes'))>
                             <label class="block text-sm text-slate-600 font-medium min-w-fit" for="mostLikes">Sort By Most Likes</label>
                         </div>
                     </div>

@@ -20,13 +20,13 @@ class DatabaseSeeder extends Seeder
     {
         User::factory()->create([
             'name' => 'Amar Cirgic',
-            'email' => 'amarcirgic2017@gmail.com',
-            'admin' => true
+            'email' => 'amarhunter01@gmail.com',
         ]);
 
         User::factory()->create([
-            'name' => 'Amar Cirgic',
-            'email' => 'amarhunter01@gmail.com',
+            'name' => 'admin',
+            'email' => 'admin@admin',
+            'admin' => true
         ]);
         
         User::factory(300) -> create();
@@ -88,5 +88,26 @@ class DatabaseSeeder extends Seeder
                 }
             }
         }
+
+        $faculty = Faculty::factory() -> create([
+            'name' => 'Faculty of Electrical Engineering',
+            'location' => 'Podgorica'
+        ]);
+
+        Program::factory() -> create([
+            'name' => 'Applied computer engineering',
+            'faculty_id' => $faculty -> id,
+        ]);
+        
+        Program::factory() -> create([
+            'name' => 'Electronics telecommunications and computers',
+            'faculty_id' => $faculty -> id,
+        ]);
+
+        Program::factory() -> create([
+            'name' => 'Power systems and automatic control',
+            'faculty_id' => $faculty -> id,
+        ]);
     }
 }
+ 

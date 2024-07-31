@@ -32,15 +32,16 @@
             </button>
 
         @endif
-        <input x-ref="input-{{ $name }}" placeholder="{{ $placeholder }}" name="{{ $name }}" value="{{ old($name, $value) }}" type="{{ $type }}"
+        <input x-ref="input-{{ $name }}" id="{{ $name }}" placeholder="{{ $placeholder }}" name="{{ $name }}" value="{{ old($name, $value) }}" type="{{ $type }}"
         @class([
-            "pr-7 w-full block px-2.5 py-1.5 rounded-sm border border-slate-300 text-sm ring-1",
+            "w-full block px-2.5 py-1.5 rounded-sm border border-slate-300 text-sm ring-1",
             'ring-slate-300' => !$errors -> has($name),
-            'ring-red-300' => $errors -> has($name)
+            'ring-red-300' => $errors -> has($name),
+            'pr-7' => $btn
         ])
         >
     @else
-        <textarea x-ref="input-{{ $name }}" placeholder="{{ $placeholder }}" name="{{ $name }}" type="{{ $type }}" rows="{{ $rows }}"
+        <textarea id="{{ $name }}" x-ref="input-{{ $name }}" placeholder="{{ $placeholder }}" name="{{ $name }}" type="{{ $type }}" rows="{{ $rows }}"
         @class([
             "w-full block px-2.5 py-1.5 rounded-sm border border-slate-300 text-sm ring-1",
             'ring-slate-300' => !$errors -> has($name),
@@ -49,7 +50,7 @@
         >{{ old($name, $value) }}</textarea>
     @endif
     @error($name)
-        <div class="mt-1 text-sm text-red-600">
+        <div class="mt-1 text-sm text-red-600 max-w-full">
             {{ $message }}
         </div>
     @enderror

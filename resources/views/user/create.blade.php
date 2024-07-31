@@ -22,12 +22,12 @@
             </div>
             <div class="flex flex-col gap-4 justify-between mb-4">
                 <div class="flex items-center gap-1">
-                    <input type="checkbox" name="remember" @checked(request('remember')) class="rounded-md">
+                    <input id="remember" type="checkbox" name="remember" @checked(request('remember')) class="rounded-md">
                     <label class="text-sm" for="remember">Remember me</label>
                 </div>
                 @if(Auth::check() && auth() -> user() -> admin)
                     <div class="flex items-center gap-1">
-                        <input type="checkbox" name="admin" @checked(request('remember')) class="rounded-md">
+                        <input id="admin" type="checkbox" name="admin" @checked(request('remember')) class="rounded-md">
                         <label class="text-sm" for="admin">Admin</label>
                     </div>
                 @endif

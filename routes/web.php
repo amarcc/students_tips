@@ -29,4 +29,4 @@ Route::resource('auth', AuthController::class) -> only(['create', 'store']);
 Route::resource('user', UserController::class);
 Route::resource('tips.reply', ReplyController::class) -> only(['store', 'update', 'destroy']);
 Route::resource('like', LikeController::class) -> only(['store', 'destroy']);
-Route::resource('mark', MarkController::class) -> only(['index', 'store', 'show']);
+Route::resource('mark', MarkController::class) -> only(['create', 'store', 'show']);

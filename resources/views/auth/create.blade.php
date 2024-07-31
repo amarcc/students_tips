@@ -14,7 +14,7 @@
             </div>
             <div class="flex flex-col gap-4 justify-between mb-4">
                 <div class="flex items-center gap-1">
-                    <input type="checkbox" name="remember" @checked(request('remember')) class="rounded-md">
+                    <input id="remember" type="checkbox" name="remember" @checked(request('remember')) class="rounded-md">
                     <label class="text-sm" for="remember">Remember me</label>
                 </div>
                 <div class="flex flex-col">
@@ -24,14 +24,10 @@
             </div>
             <div class="flex justify-start gap-2">
                 <x-button type="submit">
-
                     Sign in
-
                 </x-button>
                 <x-link-button href="{{ route('faculties.index') }}">
-
                     Cancel
-
                 </x-link-button>
             </div>
         </form>
