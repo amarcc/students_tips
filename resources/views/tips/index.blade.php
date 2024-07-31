@@ -10,7 +10,7 @@
                             <div class="grow">
                                 <x-input name="search" placeholder="Search tips..." :value="request('search')"/>
                             </div>
-                            <x-button class="min-w-fit" type="submit">Apply filerts</x-button>
+                            <x-button class="min-w-fit" type="submit">Apply filters</x-button>
                         </div>
                         <div class="flex min-w-fit items-center justify-center gap-2">
                             <input id="mostLikes" type="checkbox" class="rounded block" name="mostLikes" @checked(request('mostLikes'))>
