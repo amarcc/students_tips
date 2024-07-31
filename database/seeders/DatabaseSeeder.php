@@ -108,6 +108,17 @@ class DatabaseSeeder extends Seeder
             'name' => 'Power systems and automatic control',
             'faculty_id' => $faculty -> id,
         ]);
+
+        $faculty = Faculty::factory() -> create([
+            'name' => 'Faculty of Philosophy',
+            'location' => 'Podgorica'
+        ]);
+
+        Program::factory() -> create([
+            'name' => "Teacher's education",
+            'faculty_id' => $faculty -> id,
+        ]);
+
     }
 }
  
