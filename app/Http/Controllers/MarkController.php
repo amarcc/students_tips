@@ -62,8 +62,8 @@ class MarkController extends Controller
 
         $regression -> train($x, $yMarks);
 
-        $coefficients = $regression->getCoefficients();
-        $intercept = $regression->getIntercept();
+        $coefficients = $regression -> getCoefficients();
+        $intercept = $regression -> getIntercept();
 
         $num = round($intercept + $coefficients[0] * $currTimeSpent + $coefficients[1] * $currEcts);
 
