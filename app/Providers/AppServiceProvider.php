@@ -28,6 +28,7 @@ class AppServiceProvider extends ServiceProvider
         RateLimiter::for('replies', function (Request $request) {
             return Limit::perMinute(10)->by($request->user()?->id ?: $request->ip());
         });
+
         if ($this->app->environment('production')) {
             URL::forceScheme('https');
         }
