@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ secure_asset('css/style.css') }}">
+    <script defer src="{{ secure_asset('js/app.js') }}"></script>
     @vite(['resources/js/app.js'])
     @vite('resources/css/app.css')
     <title>Studnets-tips</title>
