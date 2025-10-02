@@ -10,9 +10,9 @@
     <title>Studnets-tips</title>
 </head>
 
-<body class="bg-gradient-to-r from-blue-100 to-indigo-100 mx-auto mt-10 text-2xl max-w-2xl" >
+<body class="bg-gradient-to-r from-blue-100 to-indigo-100 mx-auto mt-10 text-2xl max-w-2xl p-4" >
     @if(session('success'))
-        <div class="bg-green-300 opacity-75 border border-l-4 border-green-600 rounded-md mb-4 p-4">
+        <div class="bg-green-300 opacity-75 border border-l-4 border-green-600 rounded-md mb-4 px-4">
             <div role="alert" class="text-lg">Success!</div>
             <div class="text-sm" class="text-lg">{{ session('success') }}</div>
 
