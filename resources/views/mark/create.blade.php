@@ -7,9 +7,9 @@
         <p class="text-lg font-medium mb-4">Enter 5 last marks, time spent learning and ects credit</p>
         <form action="{{ route('mark.store') }}" method="POST">
             @csrf
-            <div class="flex flex-col mx-auto max-w-fit">
-                <p class="text-lg font-medium">Current:</p>
-                <div class="flex gap-4 mx-auto items-start justify-start">
+            <div class="flex flex-col max-w-fit ml-2 md:mx-auto">
+                <p class="text-lg font-medium text-left">Current:</p>
+                <div class="flex ml-2 flex-col gap-4 items-start justify-start md:flex-row">
                     <div>
                         <x-label for="currentTimeSpent">Hours Spent Learning</x-label>
                         <x-input name="currentTimeSpent" type="decimal" :value="request('timeSpent{{ $i }}')" :btn="false"></x-input>
@@ -20,11 +20,11 @@
                     </div>
                 </div>
             </div>
-            <div class="mt-4 flex flex-col gap-4 mx-auto max-w-fit">
+            <div class="mt-4 flex flex-col gap-4 max-w-fit ml-2 ">
                 @for($i = 0; $i < 5; $i++)
-                    <div class="flex flex-col mx-auto">
+                    <div class="flex flex-col">
                         <p class="text-lg font-medium">{{ Number::ordinal($i + 1) }}:</p>
-                        <div class="flex justify-between gap-4">
+                        <div class="flex ml-2 justify-between gap-4 flex-col md:flex-row">
                             <div>
                                 <x-label for="mark{{$i}}">Mark</x-label>
                                 <x-input name="mark{{$i}}" type="number" :value="request('mark{{ $i }}')" :btn="false"></x-input>
