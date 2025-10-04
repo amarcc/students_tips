@@ -1,5 +1,5 @@
 <div>
-    <ul class="flex gap-2 mb-4 text-md text-slate-600 indent-1">
+    <ul class="flex flex-wrap gap-2 mb-4 text-md text-slate-600 indent-1">
         <li>
             <a href="{{ route('faculties.index') }}">Home</a>
         </li>

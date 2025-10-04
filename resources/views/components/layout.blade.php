@@ -26,7 +26,7 @@
             </div>
         </div>
     @endif
-    <div class="mb-4 flex justify-between items-center">
+    <div class="mb-6 flex justify-between items-center">
         <div class="mb-2 flex flex-col gap-4">
             <a class="block text-4xl text-bold font-serif" href="{{ route('faculties.index') }}">
                 Students Tips
@@ -36,20 +36,20 @@
             @endif
         </div>
         @if(Auth::check() && auth() -> user())
-            <div class="text-lg text-slate-600 flex flex-col justify-end items-end w-fit">
-                <div class="text-lg text-slate-600 w-fit flex h-min-full items-center justify-center gap-3 font-medium flex-col md:flex-row">
-                    <p class="text-slate-500 self-start text-left md:text-center md:w-fit md:self-center">{{ auth() -> user() -> name}}: </p>
-                    <div class="w-fit flex flex-col gap-2 justify-center items-middle">
-                        <div class="text-lg text-slate-600 w-fit flex gap-2 font-medium flex-col md:flex-row">
+            <div class="text-lg text-slate-600 flex flex-col justify-end items-end w-fit md:justify-center md:items-center">
+                <div class="text-lg text-slate-600 w-fit flex h-min-full items-end justify-end gap-2 font-medium flex-col md:flex-row md:justify-center md:items-center">
+                    <p class="text-slate-500 text-right md:text-center md:w-fit md:self-center">{{ auth() -> user() -> name}}: </p>
+                    <div class="w-full flex flex-col gap-1 justify-end items-end md:justify-between md:items-start">
+                        <div class="text-lg text-slate-600 flex justify-end items-end gap-2 font-medium flex-col md:flex-row md:justify-between md:items-center">
                             <a href="{{ route('user.edit', auth() -> user()) }}" class="hover:underline">My Account</a>
                             <form action="{{ route('auth.destroy') }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="hover:underline">Logout</button> 
+                                <button type="submit" class="text-left hover:underline">Logout</button> 
                             </form>
                         </div>
                         @if(Auth::check() && auth() -> user() -> admin)
-                            <a href="{{ route('user.create') }}" class="whitespace-nowrap hover:underline">
+                            <a href="{{ route('user.create') }}" class="text-center whitespace-nowrap hover:underline">
                                 Make new accounts
                             </a>
                         @endif
@@ -57,7 +57,7 @@
                 </div>
             </div>
             @else
-            <div class="text-lg text-slate-600 w-fit flex gap-2 font-medium flex-col md:flex-row">
+            <div class="text-lg text-slate-600 w-fit flex justify-end items-end gap-2 font-medium flex-col md:flex-row">
                 <a href="{{ route('auth.create') }}" class="hover:underline">Login</a>
                 <a href="{{ route('user.create') }}" class="hover:underline">Signup</a>
             </div>
